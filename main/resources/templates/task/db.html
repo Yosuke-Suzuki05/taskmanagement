@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>データベース</title>
+</head>
+<body>
+	<h1>タスクデータベース</h1>
+	<table>
+		<tr>
+			<td>ID:</td>
+			<td th:text="${task.taskId}"></td>
+		</tr>
+		<tr>
+			<td>名前:</td>
+			<td th:text="${task.taskName}"></td>
+		</tr>
+		<tr>
+			<td>年齢:</td>
+			<td th:text="${task.taskAge}"></td>
+		</tr>
+	</table>
+</body>
+</html>

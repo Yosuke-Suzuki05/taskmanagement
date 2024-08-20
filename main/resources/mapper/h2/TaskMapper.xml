@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapperとxmlのマッピング -->
+<mapper namespace="com.example.demo.repository.TaskMapper">
+
+<!-- マッピング定義（タスク） -->
+<resultMap type="com.example.demo.domain.user.model.MTask" id="task">
+	<id column="taskId" property="taskId"/>
+	<result column="title" property="title"/>
+	<result column="description" property="description"/>
+	<result column="startDate" property="startDate"/>
+	<result column="deadline" property="deadline"/>
+	<result column="priority" property="priority"/>
+	<result column="status" property="status"/>
+	
+</resultMap>
+
+	<!-- タスク1件登録 -->
+	<insert id="insertOne">
+		insert into tasks_table(
+			taskId,
+			title,
+			description,
+			startDate,
+			deadline,
+			priority,
+			status
+			)
+			values(
+			#{taskId},
+			#{title},
+			#{description},
+			#{startDate},
+			#{deadline},
+			#{priority},
+			#{status}
+			)
+	</insert>
+	
+	<!-- 現在の最大タスクIDを取得 -->
+    <select id="getMaxTaskId" resultType="string">
+        select max(taskId) from tasks_table
+    </select>
+	
+	<!-- タスク複数件取得 -->
+	<select id="findMany" resultType="MTask">
+		select
+			*
+		from
+			tasks_table
+	
+	</select>
+	
+	<!-- タスク1件検索 -->
+	<select id="findOne" resultMap="task">
+		select
+			*
+		from
+			tasks_table
+		where
+			taskId = #{taskId}	
+	</select>
+	
+	<!-- タスク1件更新 -->
+	<update id= "updateOne">
+	update
+		tasks_table
+	set
+		title = #{title},
+		description = #{description},
+		startDate = #{startDate},
+		deadline = #{deadline},
+		priority = #{priority},
+		status = #{status}
+	where
+	 taskId = #{taskId}
+	</update>
+	
+	<!-- タスク1件削除 -->
+	<delete id="deleteOne">
+		delete from
+			tasks_table
+		where
+			taskId = #{taskId}
+	</delete>
+	
+</mapper>

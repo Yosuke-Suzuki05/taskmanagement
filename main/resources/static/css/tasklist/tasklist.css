@@ -1,0 +1,56 @@
+/* ヘッダーのパディングとマージン設定 */
+.header {
+    padding-top: 1rem !important;
+    padding-bottom: .5rem !important;
+    margin-bottom: 1rem !important;
+}
+
+/* テーブルヘッダーの列幅設定 */
+.th-width {
+    width: 200px;
+}
+
+/* ナビゲーションバー内のメニューアイテムのスタイル */
+.navbar-menu {
+    display: flex;
+    gap: 10px;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* 固定ナビゲーションバーのスペースを確保するためのコンテナマージン */
+.container {
+    margin-top: 80px; /* To offset the fixed navbar */
+}
+
+/* タスク情報セクションのマージン設定 */
+.task-info {
+    margin-bottom: 10px;
+}
+
+/* ページネーションのスタイル */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* ボタン全般のスタイル調整 */
+.btn, .page-button {
+    border-radius: 50px;  /* ボタンの丸みを設定 */
+}
+
+.page-number{
+    border-radius: 40px;  /* ボタンの丸みを設定 */
+}
+
+/* プライマリーボタンの追加スタイル */
+.btn-primary {
+    border-radius: 50px;  /* プライマリーボタンも同じ丸みを適用 */
+}
+
