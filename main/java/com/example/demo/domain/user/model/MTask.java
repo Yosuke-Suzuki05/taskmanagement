@@ -12,11 +12,9 @@ public class MTask {
     private String description;
     private Date startDate;
     private Date deadline;
-    private Integer priority; // Integer 型に変更
+    private Integer priority;
     private int status;
     private Date createdAt;
     private Date updatedAt;
     private boolean isDeleted;
-	public void setPassword(Object object) {}
-
 }

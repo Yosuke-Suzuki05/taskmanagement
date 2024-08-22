@@ -12,6 +12,7 @@ public class TaskRepository {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
+	/**特定のIDを持つタスクをデータベースから検索して返す */
 	public Map<String, Object> findById(String id){
 		
 		//SELECT文

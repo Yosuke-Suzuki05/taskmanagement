@@ -1,5 +1,5 @@
 /*ユーザーマスタ*/
-CREATE TABLE IF NOT EXISTS users_table(
+CREATE TABLE IF NOT EXISTS users(
 	userId CHAR(10) PRIMARY KEY,
 	password VARCHAR(30),
 	userName VARCHAR(30),
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users_table(
 );
 
 /*タスク登録マスタ*/
-CREATE TABLE IF NOT EXISTS tasks_table(
+CREATE TABLE IF NOT EXISTS tasks(
 	taskId CHAR(10) PRIMARY KEY,
 	userId CHAR(10),
 	title VARCHAR(100),
@@ -24,6 +24,6 @@ CREATE TABLE IF NOT EXISTS tasks_table(
 	createdAt DATETIME,
 	updatedAt DATETIME,
 	isDeleted TINYINT,
-	FOREIGN KEY (userId) REFERENCES users_table(userId)
+	FOREIGN KEY (userId) REFERENCES users(userId)
 );
 

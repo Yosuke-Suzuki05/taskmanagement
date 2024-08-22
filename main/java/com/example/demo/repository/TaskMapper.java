@@ -20,6 +20,7 @@ public interface TaskMapper {
 	/**タスク取得（1件)*/
 	public MTask findOne(String taskId);
 
+	/**タスクIDの最大値を取得する**/
 	String getMaxTaskId();
 	
 	/**タスク更新（1件)*/

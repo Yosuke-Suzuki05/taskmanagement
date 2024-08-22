@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-public class ProductController {
+public class TaskController {
 
     @Autowired
     private TaskService taskService;
@@ -44,8 +44,8 @@ public class ProductController {
     // タスク詳細画面を表示
     @GetMapping("task/detail/{taskId:.+}")
     public String getTaskDetail(@PathVariable("taskId") String taskId, TaskDetailForm form, Model model) {
-        MTask task = taskService.getTaskOne(taskId);
-        form = modelMapper.map(task, TaskDetailForm.class);
+        MTask taskOne = taskService.getTaskOne(taskId);
+        form = modelMapper.map(taskOne, TaskDetailForm.class);
         model.addAttribute("taskDetailForm", form);
         return "detail";
     }
@@ -58,25 +58,25 @@ public class ProductController {
 
     // タスク登録処理
     @PostMapping("task/taskregister")
-    public String postTaskRegister(@ModelAttribute @Validated(GroupOrder.class) TaskRegisterForm form, BindingResult bindingResult, Model model, Locale locale) {
+    public String registerTaskOne(@ModelAttribute @Validated(GroupOrder.class) TaskRegisterForm form, BindingResult bindingResult, Model model, Locale locale) {
         if (bindingResult.hasErrors()) {
             return "taskregister";
         }
-        MTask task = modelMapper.map(form, MTask.class);
-        taskService.taskregister(task);
+        MTask taskOne = modelMapper.map(form, MTask.class);
+        taskService.registerTaskOne(taskOne);
         return "redirect:/tasklist";
     }
 
     // タスク更新処理
     @PostMapping(value = "task/detail", params="update")
-    public String updateTask(TaskDetailForm form, Model model) {
+    public String updateTaskOne(TaskDetailForm form, Model model) {
         taskService.updateTaskOne(form.getTaskId(), form.getTitle(), form.getTaskId());
         return "redirect:/tasklist";
     }
 
     // タスク削除処理
     @PostMapping(value = "task/detail", params="delete")
-    public String deleteTask(TaskDetailForm form, Model model) {
+    public String deleteTaskOne(TaskDetailForm form, Model model) {
         taskService.deleteTaskOne(form.getTaskId());
         return "redirect:/tasklist";
     }

@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.example.demo.repository") 
-public class Taskmanegement1Application {
+public class TaskmanegementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Taskmanegement1Application.class, args);
+		SpringApplication.run(TaskmanegementApplication.class, args);
 	}
 
 }

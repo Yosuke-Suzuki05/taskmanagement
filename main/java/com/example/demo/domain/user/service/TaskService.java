@@ -7,7 +7,7 @@ import com.example.demo.domain.user.model.MTask;
 public interface TaskService {
 	
 	/**タスク登録*/
-	public void taskregister(MTask task);
+	public void registerTaskOne(MTask task);
 	
 	/**タスク取得*/
 	public List<MTask> getTasks();
