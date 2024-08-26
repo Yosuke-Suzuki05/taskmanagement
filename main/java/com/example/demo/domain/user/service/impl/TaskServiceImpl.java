@@ -18,13 +18,13 @@ public class TaskServiceImpl implements TaskService{
 	
 	/**タスク登録*/
 	@Override
-	public void registerTaskOne(MTask taskOne) {
+	public void registerTaskOne(MTask task) {
 		
 		// タスクIDを自動生成 (10桁)
         String taskId = generateTaskId();
-        taskOne.setTaskId(taskId);
+        task.setTaskId(taskId);
         
-        mapper.insertOne(taskOne);
+        mapper.insertOne(task);
     }
 
 	private String generateTaskId() {

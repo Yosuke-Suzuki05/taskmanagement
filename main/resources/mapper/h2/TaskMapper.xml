@@ -17,54 +17,54 @@
 	
 </resultMap>
 
-	<!-- タスク1件登録 -->
-	<insert id="insertOne">
-		insert into tasks(
-			taskId,
-			title,
-			description,
-			startDate,
-			deadline,
-			priority,
-			status
-			)
-			values(
-			#{taskId},
-			#{title},
-			#{description},
-			#{startDate},
-			#{deadline},
-			#{priority},
-			#{status}
-			)
-	</insert>
+<!-- タスク1件登録 -->
+<insert id="insertOne">
+	insert into tasks(
+		taskId,
+		title,
+		description,
+		startDate,
+		deadline,
+		priority,
+		status
+	)
+	values(
+		#{taskId},
+		#{title},
+		#{description},
+		#{startDate},
+		#{deadline},
+		#{priority},
+		#{status}
+	)
+</insert>
 	
-	<!-- 現在の最大タスクIDを取得 -->
-    <select id="getMaxTaskId" resultType="string">
-        select max(taskId) from tasks
-    </select>
-	
-	<!-- タスク複数件取得 -->
-	<select id="findMany" resultType="MTask">
-		select
-			*
-		from
-			tasks
-	
-	</select>
-	
-	<!-- タスク1件検索 -->
-	<select id="findOne" resultMap="task">
-		select
-			*
-		from
-			tasks
-		where
-			taskId = #{taskId}	
-	</select>
-	
-	<!-- タスク1件更新 -->
-	<update id= "updateOne">
+<!-- 現在の最大タスクIDを取得 -->
+<select id="getMaxTaskId" resultType="string">
+    select max(taskId) from tasks
+</select>
+
+<!-- タスク複数件取得 -->
+<select id="findMany" resultType="MTask">
+	select
+		*
+	from
+		tasks
+
+</select>
+
+<!-- タスク1件検索 -->
+<select id="findOne" resultMap="task">
+	select
+		*
+	from
+		tasks
+	where
+		taskId = #{taskId}	
+</select>
+
+<!-- タスク1件更新 -->
+<update id= "updateOne">
 	update
 		tasks
 	set
@@ -75,15 +75,15 @@
 		priority = #{priority},
 		status = #{status}
 	where
-	 taskId = #{taskId}
-	</update>
+	 	taskId = #{taskId}
+</update>
 	
-	<!-- タスク1件削除 -->
-	<delete id="deleteOne">
-		delete from
-			tasks
-		where
-			taskId = #{taskId}
-	</delete>
+<!-- タスク1件削除 -->
+<delete id="deleteOne">
+	delete from
+		tasks
+	where
+		taskId = #{taskId}
+</delete>
 	
 </mapper>

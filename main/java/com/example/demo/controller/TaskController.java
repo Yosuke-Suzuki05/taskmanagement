@@ -44,8 +44,8 @@ public class TaskController {
     // タスク詳細画面を表示
     @GetMapping("task/detail/{taskId:.+}")
     public String getTaskDetail(@PathVariable("taskId") String taskId, TaskDetailForm form, Model model) {
-        MTask taskOne = taskService.getTaskOne(taskId);
-        form = modelMapper.map(taskOne, TaskDetailForm.class);
+        MTask task = taskService.getTaskOne(taskId);
+        form = modelMapper.map(task, TaskDetailForm.class);
         model.addAttribute("taskDetailForm", form);
         return "detail";
     }
@@ -62,8 +62,8 @@ public class TaskController {
         if (bindingResult.hasErrors()) {
             return "taskregister";
         }
-        MTask taskOne = modelMapper.map(form, MTask.class);
-        taskService.registerTaskOne(taskOne);
+        MTask task = modelMapper.map(form, MTask.class);
+        taskService.registerTaskOne(task);
         return "redirect:/tasklist";
     }
 

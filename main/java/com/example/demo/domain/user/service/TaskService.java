@@ -17,8 +17,8 @@ public interface TaskService {
 	
 	/**タスク更新（1件）*/
 	public void updateTaskOne(String taskId,
-			String title,
-			String description);
+		String title,
+		String description);
 	
 	/**タスク削除*/
 	public void deleteTaskOne(String taskId);
