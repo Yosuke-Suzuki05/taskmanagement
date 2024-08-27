@@ -41,7 +41,7 @@
 	
 <!-- 現在の最大タスクIDを取得 -->
 <select id="getMaxTaskId" resultType="string">
-    select max(taskId) from tasks
+	select max(taskId) from tasks
 </select>
 
 <!-- タスク複数件取得 -->

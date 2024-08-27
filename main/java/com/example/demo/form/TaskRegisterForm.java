@@ -18,10 +18,9 @@ public class TaskRegisterForm {
 	@Size(min = 0, max = 10000, groups = ValidGroup2.class)
     private String description;
 	
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
     
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date deadline;
-
 }

@@ -24,13 +24,12 @@ public interface TaskMapper {
 	String getMaxTaskId();
 	
 	/**タスク更新（1件)*/
-	public void updateOne(@Param("taskId")String taskId,
-			
-			@Param("title") String title,
-			@Param("description") String description,
-			@Param("startDate") Date startDate,
-			@Param("deadline") Date deadline,
-			@Param("priority") int priority,
+	public void updateOne(@Param("taskId")String taskId, 
+			@Param("title") String title, 
+			@Param("description") String description, 
+			@Param("startDate") Date startDate, 
+			@Param("deadline") Date deadline, 
+			@Param("priority") int priority, 
 			@Param("status") int status );
 	
 	/**タスク削除*/
