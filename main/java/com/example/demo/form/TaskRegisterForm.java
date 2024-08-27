@@ -13,14 +13,14 @@ public class TaskRegisterForm {
 	
 	@NotBlank(groups = ValidGroup1.class)
 	@Size(min = 1, max = 100, groups = ValidGroup2.class)
-    private String title;
+	private String title;
 	
 	@Size(min = 0, max = 10000, groups = ValidGroup2.class)
-    private String description;
+	private String description;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date startDate;
-    
+	private Date startDate;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date deadline;
+	private Date deadline;
 }
