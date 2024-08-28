@@ -44,10 +44,10 @@ public class TaskController {
     // タスク詳細画面を表示
     @GetMapping("task/detail/{taskId:.+}")
     public String getTaskDetail(@PathVariable("taskId") String taskId, TaskDetailForm form, Model model) {
-        MTask task = taskService.getTaskOne(taskId);
+        MTask task = taskService.getTask(taskId);
         form = modelMapper.map(task, TaskDetailForm.class);
         model.addAttribute("taskDetailForm", form);
-        return "detail";
+        return "taskdetail";
     }
 
     // タスク登録画面を表示
@@ -58,26 +58,26 @@ public class TaskController {
 
     // タスク登録処理
     @PostMapping("task/taskregister")
-    public String registerTaskOne(@ModelAttribute @Validated(GroupOrder.class) TaskRegisterForm form, BindingResult bindingResult, Model model, Locale locale) {
+    public String registerTask(@ModelAttribute @Validated(GroupOrder.class) TaskRegisterForm form, BindingResult bindingResult, Model model, Locale locale) {
         if (bindingResult.hasErrors()) {
             return "taskregister";
         }
         MTask task = modelMapper.map(form, MTask.class);
-        taskService.registerTaskOne(task);
+        taskService.registerTask(task);
         return "redirect:/tasklist";
     }
 
     // タスク更新処理
     @PostMapping(value = "task/detail", params="update")
-    public String updateTaskOne(TaskDetailForm form, Model model) {
-        taskService.updateTaskOne(form.getTaskId(), form.getTitle(), form.getTaskId());
+    public String updateTask(TaskDetailForm form, Model model) {
+        taskService.updateTask(form.getTaskId(), form.getTitle(), form.getTaskId());
         return "redirect:/tasklist";
     }
 
     // タスク削除処理
     @PostMapping(value = "task/detail", params="delete")
-    public String deleteTaskOne(TaskDetailForm form, Model model) {
-        taskService.deleteTaskOne(form.getTaskId());
+    public String deleteTask(TaskDetailForm form, Model model) {
+        taskService.deleteTask(form.getTaskId());
         return "redirect:/tasklist";
     }
 }

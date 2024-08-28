@@ -18,7 +18,7 @@ public class TaskServiceImpl implements TaskService{
 	
 	/**タスク登録*/
 	@Override
-	public void registerTaskOne(MTask task) {
+	public void registerTask(MTask task) {
 		
 		// タスクIDを自動生成 (10桁)
 		String taskId = generateTaskId();
@@ -45,19 +45,19 @@ public class TaskServiceImpl implements TaskService{
 	
 	/**タスク取得(1件)*/
 	@Override
-	public MTask getTaskOne(String taskId) {
+	public MTask getTask(String taskId) {
 		return mapper.findOne(taskId);
 	}
 	
 	/**タスク更新*/
 	@Override
-	public void updateTaskOne(String taskId, String title, String description) {
+	public void updateTask(String taskId, String title, String description) {
 		mapper.updateOne(taskId,title,description, null, null, 0, 0);	
 	}
 	
 	/**タスク削除*/
 	@Override
-	public void deleteTaskOne(String taskId) {
+	public void deleteTask(String taskId) {
 		int count = mapper.deleteOne(taskId);
 	}
     

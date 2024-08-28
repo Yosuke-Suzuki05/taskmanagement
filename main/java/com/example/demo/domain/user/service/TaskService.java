@@ -7,18 +7,18 @@ import com.example.demo.domain.user.model.MTask;
 public interface TaskService {
 	
 	/**タスク登録*/
-	public void registerTaskOne(MTask task);
+	public void registerTask(MTask task);
 	
 	/**タスク取得*/
 	public List<MTask> getTasks();
 	
 	/**タスク取得(1件)*/
-	public MTask getTaskOne(String taskId);
+	public MTask getTask(String taskId);
 	
 	/**タスク更新（1件）*/
-	public void updateTaskOne(String taskId, String title, String description);
+	public void updateTask(String taskId, String title, String description);
 	
 	/**タスク削除*/
-	public void deleteTaskOne(String taskId);
+	public void deleteTask(String taskId);
 
 }
