@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!--CSS読込-->
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/css/taskregister/taskregister.css}">
+	<!--JS読込-->
+	<script th:src="@{/webjars/jquery/jquery.min.js}"defer></script>
+	<title>タスクの詳細</title>
+</head>
+<body class="bg-light">
+	<!--ヘッダー-->
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">タスク登録</a>
+            </div>
+        </div>
+    </nav>
+    
+	<form id="taskregister-form" method="post" action="taskregister" class="form-taskregister" th:object="${taskRegisterForm}">
+		<div class="header-section">
+        <h2 class="header-title">タスクの詳細</h2>
+    	</div>
+  
+		<!--タスク名-->
+		<div class="form-group">
+			<label for="title" th:text="#{title}"></label>
+			<input type="text" id="title" class="form-control" name="title" th:field="*{title}" th:errorclass="is-invalid" required/>
+			<dic class="invalid-feedback" th:errors="*{title}">
+		</div>
+		<!--タスク詳細-->
+		<div class="form-group">
+			<label for="description" th:text="#{description}"></label>
+			<textarea id="description" class="form-control" name="description" th:field="*{description}" th:errorclass="is-invalid"></textarea>
+			<div class="invalid-feedback" th:errors="*{description}"></div>
+		</div>
+		<!--開始日-->
+		<div class="form-group">
+			<label for="startDate" th:text="#{startDate}"></label>
+			<input type="date" id="startDate" class="form-control" name="startDate"　placeholder="yyyy/MM/dd" th:field="*{startDate}" th:errorclass="is-invalid"/>
+			<div class="invalid-feedback" th:errors="*{description}"></div>
+		</div>
+		<!--期限日-->
+		<div class="form-group">
+			<label for="deadline" th:text="#{deadline}"></label>
+			<input type="date" id="deadline" class="form-control" name="deadline"　placeholder="yyyy/MM/dd" th:field="*{deadline}" th:errorclass="is-invalid"/>
+			<div class="invalid-feedback" th:errors="*{description}"></div>
+		</div>
+		<!--優先度-->
+		<div class="form-group">
+			<label for="priority" th:text="#{priority}"></label>
+	        <select id="priority" class="form-control" name="priority">
+		         <option value="0">高</option>
+		         <option value="1">中</option>
+		         <option value="2">低</option>
+	        </select>
+		</div>
+		<!--状態-->
+		<div class="form-group">
+		     <label for="status" th:text="#{status}"></label>
+		     <select id="status" class="form-control" name="status">
+		         <option value="0">未対応</option>
+		         <option value="1">処理中</option>
+		         <option value="2">完了</option>
+		     </select>
+		</div>
+		</br>
+		<!--タスク登録ボタン-->
+		<input type="submit" th:value="#{registerButton}" class="btn btn-primary w-100 mt-3"/>
+	 </form>
+</body>
+</html>
